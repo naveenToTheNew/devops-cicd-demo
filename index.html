@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="DevOps Assignment — a static site covering CI/CD, containers, and infrastructure as code."
+    />
+    <title>DevOps Assignment | Pipeline Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="#home">
+          <span class="logo-mark" aria-hidden="true">⌘</span>
+          Pipeline Lab
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="sr-only">Menu</span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary">
+          <a href="#home">Home</a>
+          <a href="#practices">Practices</a>
+          <a href="#pipeline">Pipeline</a>
+          <a href="#stack">Stack</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="home" class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow">DevOps Assignment · Static Website</p>
+            <h1>Ship smaller. Ship safer. Ship often.</h1>
+            <p class="lede">
+              A lightweight static site built for a DevOps assignment — ready to
+              host on Nginx, S3, GitHub Pages, or a container.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#pipeline">View pipeline</a>
+              <a class="btn btn-ghost" href="#practices">Read practices</a>
+            </div>
+          </div>
+          <aside class="terminal" aria-label="Sample deploy log">
+            <div class="terminal-bar">
+              <span></span><span></span><span></span>
+              <code>deploy.sh</code>
+            </div>
+            <pre>
+<span class="t-muted">$</span> git push origin main
+<span class="t-ok">✓</span> tests passed (12/12)
+<span class="t-ok">✓</span> image built: pipeline-lab:1.0.0
+<span class="t-ok">✓</span> pushed to registry
+<span class="t-ok">✓</span> rolled out to staging
+<span class="t-accent">→</span> production healthy
+            </pre>
+          </aside>
+        </div>
+      </section>
+
+      <section id="practices" class="section">
+        <div class="container">
+          <p class="eyebrow">Core practices</p>
+          <h2>What this assignment covers</h2>
+          <div class="card-grid">
+            <article class="card">
+              <h3>Continuous Integration</h3>
+              <p>
+                Every commit runs lint, unit tests, and a static site build so
+                broken artifacts never reach the host.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Continuous Delivery</h3>
+              <p>
+                Merges to main produce a versioned artifact and a repeatable
+                deploy to staging, then production.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Infrastructure as Code</h3>
+              <p>
+                Servers, buckets, and DNS stay in version control so
+                environments can be rebuilt from a single source of truth.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Observability</h3>
+              <p>
+                Health checks, access logs, and a simple status page make
+                failures visible before users report them.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="pipeline" class="section section-alt">
+        <div class="container">
+          <p class="eyebrow">Delivery flow</p>
+          <h2>From commit to production</h2>
+          <ol class="pipeline">
+            <li>
+              <strong>Commit</strong>
+              <span>Push to the assignment repo</span>
+            </li>
+            <li>
+              <strong>Build</strong>
+              <span>Package HTML, CSS, and JS</span>
+            </li>
+            <li>
+              <strong>Test</strong>
+              <span>Validate links and markup</span>
+            </li>
+            <li>
+              <strong>Release</strong>
+              <span>Publish the static artifact</span>
+            </li>
+            <li>
+              <strong>Deploy</strong>
+              <span>Serve with Nginx or S3</span>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="stack" class="section">
+        <div class="container">
+          <p class="eyebrow">Runtime</p>
+          <h2>Static by design</h2>
+          <p class="lede">
+            No backend, no database, no build step required. Open
+            <code>index.html</code> or drop the folder behind any web server.
+          </p>
+          <ul class="stack-list">
+            <li>HTML5 semantic markup</li>
+            <li>CSS custom properties</li>
+            <li>Vanilla JavaScript</li>
+            <li>Works offline after first load of fonts</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="contact" class="section section-alt">
+        <div class="container contact-panel">
+          <div>
+            <p class="eyebrow">Next step</p>
+            <h2>Ready to host this site</h2>
+            <p>
+              Point Nginx, Apache, GitHub Pages, Netlify, or an S3 bucket at
+              this folder. The homepage is <code>index.html</code>.
+            </p>
+          </div>
+          <form id="contact-form" class="contact-form" novalidate>
+            <label>
+              Name
+              <input type="text" name="name" required autocomplete="name" />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" required autocomplete="email" />
+            </label>
+            <label>
+              Message
+              <textarea name="message" rows="4" required></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Send note</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>DevOps Assignment · Pipeline Lab · Static website</p>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
