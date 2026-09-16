@@ -28,7 +28,7 @@ jobs:
       - name: Build / Package
         run: |
           mkdir -p build
-          cp index.html style.css script.js build/
+          cp index.html css/styles.css js/script.js build/
           echo "Build completed"
 
       - name: Configure AWS credentials
