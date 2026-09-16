@@ -27,9 +27,21 @@ jobs:
 
       - name: Build / Package
         run: |
-          mkdir -p build
-          cp index.html css/styles.css js/script.js build/
+          mkdir -p build/css
+          mkdir -p build/js
+
+          cp index.html build/
+          cp css/styles.css build/css/
+          cp js/script.js build/js/
+
           echo "Build completed"
+
+      - name: Verify build
+        run: |
+          test -f build/index.html
+          test -f build/css/styles.css
+          test -f build/js/script.js
+          echo "Build files verified"
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
